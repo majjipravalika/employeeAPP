@@ -16,7 +16,7 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
-} */
+} 
 
 .arrow-icon {
   display: flex;
@@ -46,7 +46,7 @@
   position: fixed !important;
   z-index: 1000; 
   top: auto !important; 
-} */
+} 
 
 .cdk-overlay-pane {
   position: absolute !important;
