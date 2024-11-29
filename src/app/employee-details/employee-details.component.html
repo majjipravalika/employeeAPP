@@ -1,0 +1,59 @@
+<div style="width: 700px; margin: auto; background: #f9f9f9; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+  <h2 style="text-align: center; color: #007bff;">Add Employee Details</h2>
+  <form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employeeForm.form.valid,employeeForm.value)">
+    <mat-form-field appearance="outline" style="width: 100%; margin-bottom: 16px;">
+      <mat-label>Employee Name</mat-label>
+      <mat-icon matPrefix>person</mat-icon>
+      <input matInput name="name"  [(ngModel)]="employee.name" placeholder="Employee name"  required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="width: 100%; margin-bottom: 16px;">
+      <mat-label>Select Role</mat-label>
+      <mat-icon matPrefix>work</mat-icon>
+      <mat-select name="role" ngModel required>
+        <mat-option *ngFor="let role of roles"  [(ngModel)]="employee.role" name = "role" [value]="role" >{{ role }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+      <div class="date-input-wrapper" style="display: flex; align-items: center; justify-content: space">
+      <mat-form-field appearance="outline" style="flex: 1; " class="custom-date-picker">
+        <input matInput name="formattedStartDate" [(ngModel)]="formattedStartDate"  />
+        <mat-datepicker-toggle matPrefix [for]="datePicker" (click)="toggleCustomPanel()"></mat-datepicker-toggle>
+        <mat-datepicker #datePicker panelClass="custom-datepicker"></mat-datepicker>
+      </mat-form-field>
+      
+      <div
+        *ngIf="showCustomPanel"
+        class="custom-panel"
+        style="background: white; padding: 10px; border: 1px solid #ccc; border-radius: 8px; position: relative; z-index: 1000; margin-top: -16px;">
+        <button mat-button (click)="setDate('today')">Today</button>
+        <button mat-button (click)="setDate('nextMonday')">Next Monday</button>
+        <button mat-button (click)="setDate('nextTuesday')">Next Tuesday</button>
+        <button mat-button (click)="setDate('AfterWeek')">After 1 week</button>
+        <mat-calendar (selectedChange)="onDateSelected($event)" [selected]="startDate"></mat-calendar>
+      </div>
+      <div class="arrow-icon">
+      <mat-icon>arrow_forward</mat-icon>
+</div>
+
+    <mat-form-field appearance="outline" style="flex: 1;" class="custom-date-picker">
+      <input matInput name="formattedEndDate" [(ngModel)]="formattedEndDate" />
+      <mat-datepicker-toggle matPrefix [for]="datePicker" (click)="toggleCustomEndPanel()"></mat-datepicker-toggle>
+      <mat-datepicker #datePicker></mat-datepicker>
+    </mat-form-field>
+    <div
+      *ngIf="showCustomPanelEnd"
+      class="custom-panel"
+      style="background: white; padding: 10px; border: 1px solid #ccc; border-radius: 8px; position: relative; z-index: 1000; margin-top: -16px;">
+      <button mat-button (click)="setEndDate('noDate')">No date</button>
+      <button mat-button (click)="setEndDate('today')">Today</button>
+      <mat-calendar (selectedChange)="onEndDateSelected($event)" [selected]="endDate" [dateFilter]="dateFilter"></mat-calendar>
+    </div>
+    </div>
+    <!-- Buttons -->
+    <div style="display: flex; justify-content: space-between;">
+      <button mat-raised-button color="primary" type="submit">Save</button>
+      <button mat-raised-button color="warn" type="button" (click)="onReset(employeeForm)">Cancel</button>
+    </div>
+  </form>
+</div>

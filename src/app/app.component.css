@@ -1,0 +1,64 @@
+.employee-list-container {
+    padding: 16px;
+  }
+  
+  h2 {
+    color: #007BFF;
+    font-weight: bold;
+  }
+  
+  h3 {
+    color: gray;
+    font-size: 18px;
+  }
+  
+  .employee-card {
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .employee-info {
+    transition: transform 0.3s ease;
+  }
+  
+  .employee-card.swiped .employee-info {
+    transform: translateX(-100px); 
+  }
+  
+  .edit-button,.delete-button {
+    background: #e0f7fa;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  .delete-button:hover {
+    background: #ff9999;
+  }
+  .edit-button:hover {
+    background: #b2ebf2;
+  }
+  .action-buttons {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 8px; /* Space between buttons */
+  }
+  
+  mat-icon {
+    font-size: 24px;
+  }
+  

@@ -1,0 +1,71 @@
+.custom-date-picker .custom-panel {
+  position: absolute;
+  width: 100%;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.custom-panel button {
+  display: block;
+  text-align: left;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 4px;
+  background: #f3f3f3;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+} */
+
+.arrow-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2%;
+  font-size: 24px;
+  color: #757575;
+}
+
+
+@media (max-width: 768px) {
+  .arrow-icon {
+     margin: 8px 0;
+  }
+}
+.custom-datepicker .mat-datepicker-content {
+  margin-top: 8px; 
+  transform: translateY(0) !important; 
+}
+
+.container {
+  position: relative;
+  overflow: visible; 
+}
+.cdk-overlay-pane {
+  position: fixed !important;
+  z-index: 1000; 
+  top: auto !important; 
+} */
+
+.cdk-overlay-pane {
+  position: absolute !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+}
+
+.cdk-overlay-container {
+  z-index: 1000 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
